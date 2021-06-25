@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>preloader</title>
+    <style>
+      body {
+        background-color: turquoise;
+      }
+      .preloader {
+        width: 150px;
+        height: 150px;
+        /* position: absolute;
+        top: 36%;
+        left: 36%; */
+        border-top: 15px solid blueviolet;
+        border-right: 15px solid teal;
+        border-bottom: 15px solid tomato;
+        border-left: 15px solid salmon;
+        border-radius: 50%;
+        animation: load 2s linear infinite;
+      }
+      .container {
+        width: 100%;
+        max-width: 400px;
+        margin: 10rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position:relative;
+      }
+      .circle {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 0 15px;
+        animation: updown 1s linear infinite;
+      }
+      .circle:nth-child(2) {
+        animation-delay: 0.2s;
+        background-color: tomato;
+      }
+      .circle:last-child {
+        animation-delay: 0.4s;
+        background-color: salmon;
+      }
+      .container::after{
+          content:'Loading...';
+          display:block;
+          position:absolute;
+          top:100%;
+          color:#fff;
+          width:inherit;
+          text-align:center;
+      }
+      /* .preloader::after{
+            content:'Loading...';
+            display:block;
+        } */
+      @keyframes load {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          border-top-color: transparent;
+        }
+        50% {
+          border-right-color: transparent;
+        }
+        75% {
+          border-bottom-color: transparent;
+        }
+        100% {
+          transform: rotate(360deg);
+          border-left-color: tranparent;
+        }
+      }
+      @keyframes slideBottom {
+        from {
+          bottom: 100px;
+          top: 0;
+        }
+        to {
+          bottom: 0;
+          top: 0;
+        }
+      }
+      @keyframes updown {
+        0% {
+          margin-top: 0;
+        }
+        35% {
+          margin-top: -55px;
+        }
+        70% {
+          margin-top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+        <div class="preloader"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <!-- <p style="text-align:center">Loading..</p> -->
+  </body>
+</html>
